@@ -2,7 +2,6 @@ import os
 from PIL import Image
 from django.conf import settings
 
-@staticmethod
 def resize_image(img, new_width=500):
     img_full_path = os.path.join(settings.MEDIA_ROOT, img.name)
     img_pill = Image.open(img_full_path)
