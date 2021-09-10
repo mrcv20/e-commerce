@@ -7,13 +7,12 @@ class VariationInline(admin.TabularInline):
     model = Variation
     extra = 1
 
-class AdminRequest(admin.ModelAdmin):
+class AdminProduct(admin.ModelAdmin):
+    list_display = ['name']
     inlines = [
         VariationInline
     ]
 
 
-
-
-admin.site.register(Product, AdminRequest)
+admin.site.register(Product, AdminProduct)
 admin.site.register(Variation)
