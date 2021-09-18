@@ -23,6 +23,16 @@ class Product(models.Model):
             ('D', 'Default')
         )
     )
+
+
+    def get_preco_formatado(self):
+        return utils.price_format(self.price_variation)
+    get_preco_formatado.short_description = 'Preço'
+
+    def get_preco_promo_formatado(self):
+        return utils.price_format(self.promo_variation_price)
+    get_preco_promo_formatado.short_description = 'Preço'
+
     def save(self, *args, **kwargs):
         if not self.slug:
             slug = f'{slugify(self.name)}'
